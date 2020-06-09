@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Movie Buﬀ</string>
+    <string name="textview">TextView</string>
+    <string name="overview">Overview</string>
+    <string name="videos">Videos</string>
+    <string name="reviews">Reviews:</string>
+    <string name="no_internet">There is no internet connection !!</string>
 </resources>

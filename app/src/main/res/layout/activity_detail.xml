@@ -39,7 +39,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 android:layout_marginStart="8dp"
-                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintStart_toEndOf="@+id/backDropImageView"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +48,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="TextView"
                 android:textColor="@android:color/holo_red_dark"
                 app:layout_constraintBottom_toBottomOf="@+id/backDropImageView"
                 app:layout_constraintStart_toEndOf="@+id/backDropImageView"
@@ -60,7 +58,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/backDropImageView" />
@@ -70,7 +67,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Overview"
+            android:text="@string/overview"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -81,7 +78,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Videos"
+            android:text="@string/videos"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <com.flaviofaria.kenburnsview.KenBurnsView
@@ -92,7 +89,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reviews:"
+            android:text="@string/reviews"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView

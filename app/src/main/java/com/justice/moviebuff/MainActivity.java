@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String API_KEY = "5f405b82677e13f22ed99ef6e26d27c1";
     public static final String LANGUAGE = "en-US";
     public static final String CATEGORY = "popular";
-    private List<Result> movieList;
 
     private LinearLayout linearLayout;
     private RecyclerView recyclerView;
@@ -42,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initWidgets();
         loadDataFromDatabase();
+    }
+
+    private void initWidgets() {
+        linearLayout = findViewById(R.id.linearLayout);
+        recyclerView = findViewById(R.id.recyclerView);
+        progressBar = findViewById(R.id.progressBar);
     }
 
     private void loadDataFromDatabase() {
@@ -58,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MoviesResults> call, Response<MoviesResults> response) {
                 progressBar.setVisibility(View.GONE);
-                movieList = response.body().getResults();
-                setUpRecyclerAdapter();
+                List<Result> movieList = response.body().getResults();
+                setUpRecyclerAdapter(movieList);
 
             }
 
@@ -71,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
             private void createAnErrorAlert(Throwable throwable) {
                 MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
-                builder.setTitle("There is no internet connection");
+                builder.setTitle(R.string.no_internet);
                 builder.setMessage(throwable.getMessage() + "\n\nWould you like to retry loading the movies data?").setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -90,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setUpRecyclerAdapter() {
+    private void setUpRecyclerAdapter(List<Result> movieList) {
+
         MainAdapter adapter = new MainAdapter(this, movieList);
         recyclerView.setHasFixedSize(true);
         /////choose Grid span depending on the orientation of screen////////
@@ -105,9 +111,5 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void initWidgets() {
-        linearLayout = findViewById(R.id.linearLayout);
-        recyclerView = findViewById(R.id.recyclerView);
-        progressBar = findViewById(R.id.progressBar);
-    }
+
 }
